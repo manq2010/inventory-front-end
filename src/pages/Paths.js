@@ -3,6 +3,8 @@ const Paths = {
   about: '/about',
   main: '/home',
   dog: '/dog',
+  register: '/register',
+  login: '/login',
   other: '*',
 };
 

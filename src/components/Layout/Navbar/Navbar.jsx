@@ -1,6 +1,6 @@
 import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
-import { SiDatadog } from 'react-icons/si';
+import { SiModrinth } from 'react-icons/si';
 // components
 import NavLinkCustom from './NavLinkCustom';
 import NavLink from './NavLink';
@@ -15,13 +15,14 @@ const Navbar = () => {
     <StyledNavbar>
       <div>
         <NavLinkCustom onClick={() => navigate(Paths.defaultRoute)}>
-          <SiDatadog size="2rem" color="white" />
+          {/* <SiDatadog size="2rem" color="white" /> */}
+          <SiModrinth size="2rem" color="white" />
         </NavLinkCustom>
       </div>
       <div>
-        <NavLink to={Paths.about}>About</NavLink>
         <NavLink to={Paths.main}>Main</NavLink>
         <NavLink to={Paths.dog}>Dogs</NavLink>
+        <NavLink to={Paths.about}>About</NavLink>
       </div>
     </StyledNavbar>
   );

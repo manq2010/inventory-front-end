@@ -3,7 +3,7 @@ import { Route, Routes, Navigate } from 'react-router-dom';
 import Paths from './Paths';
 import Main from './Main';
 import AboutPage from './About';
-import DogPage from './Dog';
+import DogPage from './Dogs';
 
 const AppRoutes = () => (
   <Routes>
