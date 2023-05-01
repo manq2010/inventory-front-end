@@ -1,27 +1,23 @@
-import React from 'react';
 import styled from 'styled-components';
 import { Helmet } from 'react-helmet';
-// import About from '../components/About';
 import Layout from '../components/Layout/Layout';
-// import BreedsTable from '../features/dogs/components/BreedsTable';
+import ItemsList from '../features/items/components/ItemsList';
 
-const DogPage = () => (
+const ItemPage = () => (
   <Layout>
     <Helmet>
-      <title>Chillers | Dog</title>
+      <title>Chillers | Item</title>
     </Helmet>
     <Div>
-      <h3>Dog</h3>
+      <h3>Items</h3>
 
-      {/* <BreedsTable /> */}
+      <ItemsList />
 
     </Div>
-
-    {/* <About /> */}
   </Layout>
 );
 
-export default DogPage;
+export default ItemPage;
 
 export const Div = styled.div`
   h3 {

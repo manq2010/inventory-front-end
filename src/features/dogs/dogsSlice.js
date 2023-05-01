@@ -10,7 +10,7 @@ import { dogsApi, DogsPathsEnum } from './dogsApi';
 export const getBreeds = createAsyncThunk('offers/getBreeds',
   async (query, { rejectWithValue }) => {
     try {
-      const res = await dogsApi.getBreeds(`${DogsPathsEnum.breeds}${query}`);
+      const res = await dogsApi.getBreeds(`${DogsPathsEnum.breeds}`);
       return res;
     } catch (error) {
       rejectWithValue('Error');

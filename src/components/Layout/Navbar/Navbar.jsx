@@ -21,6 +21,7 @@ const Navbar = () => {
       </div>
       <div>
         <NavLink to={Paths.main}>Main</NavLink>
+        <NavLink to={Paths.item}>Item</NavLink>
         <NavLink to={Paths.dog}>Dogs</NavLink>
         <NavLink to={Paths.about}>About</NavLink>
       </div>
