@@ -1,10 +1,10 @@
 import axios from 'axios';
 
-export const httpItems = axios.create({
+export const httpSales = axios.create({
   baseURL: process.env.REACT_APP_BASE_URL || 'http://localhost:3000/',
 });
 
-const getItems = async (url) => {
+const getSales = async (url) => {
   // const token = localStorage.getItem('token');
   const requestOptions = {
     method: 'GET',
@@ -12,14 +12,14 @@ const getItems = async (url) => {
     //   Authorization: `Bearer ${token}`,
     },
   };
-  const res = await httpItems.get(url, requestOptions);
+  const res = await httpSales.get(url, requestOptions);
 
   return {
     results: res,
   };
 };
 
-const getItem = async (url) => {
+const getSale = async (url) => {
   // const token = localStorage.getItem('token');
   const requestOptions = {
     method: 'GET',
@@ -27,14 +27,14 @@ const getItem = async (url) => {
     //   Authorization: `Bearer ${token}`,
     },
   };
-  const res = await httpItems.get(url, requestOptions);
+  const res = await httpSales.get(url, requestOptions);
 
   return {
     results: res,
   };
 };
 
-const addItem = async (url, item) => {
+const addSale = async (url, item) => {
   // const token = localStorage.getItem('token');
   console.log('addItem', item);
   const requestOptions = {
@@ -43,15 +43,15 @@ const addItem = async (url, item) => {
     //   Authorization: `Bearer ${token}`,
     },
   };
-  const res = await httpItems.post(url, item, requestOptions);
+  const res = await httpSales.post(url, item, requestOptions);
 
   return {
     results: res,
   };
 };
 
-// Delete an item
-const deleteItem = async (url, id) => {
+// Delete a Sale
+const deleteSale = async (url, id) => {
   // const token = localStorage.getItem('token');
   const requestOptions = {
     method: 'DELETE',
@@ -59,15 +59,15 @@ const deleteItem = async (url, id) => {
     //   Authorization: `Bearer ${token}`,
     },
   };
-  await httpItems.delete(url, requestOptions);
+  await httpSales.delete(url, requestOptions);
 
   return {
     results: id,
   };
 };
 export const itemsApi = {
-  getItems,
-  getItem,
-  addItem,
-  deleteItem,
+  getSales,
+  getSale,
+  addSale,
+  deleteSale,
 };

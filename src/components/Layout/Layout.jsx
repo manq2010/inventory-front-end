@@ -20,12 +20,13 @@ Layout.propTypes = {
 };
 
 export const StyleLayout = styled.div`
-  height: 100vh;
+  /* height: 100vh; */
 
   main {
-    height: 100vh;
+    /* height: 100vh; */
 
     padding: 2rem;
+    margin-bottom: 4rem;
   }
 `;
 

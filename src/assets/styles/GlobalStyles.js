@@ -10,8 +10,8 @@ const GlobalStyles = createGlobalStyle`
 
   body {
     min-width: 320px;
-    height: 100vh;
-    overflow: hidden;
+    /* height: 100vh; */
+    /* overflow: hidden; */
     background: ${({ theme }) => theme.colors.white};
     color: ${({ theme }) => theme.colors.black};
     font-size: 1rem;

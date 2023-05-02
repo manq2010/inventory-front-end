@@ -1,0 +1,113 @@
+#add_item,
+#form {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.form__container {
+  max-width: 500px;
+  padding: 1rem;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.form__container input,
+.form__container textarea,
+.form__container select {
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid #ddd;
+  font-size: 1rem;
+  color: #333;
+  /* margin-bottom: 1rem; */
+}
+
+.form__container input.error,
+.form__container textarea.error {
+  border-color: red;
+}
+
+.form__container input[type="submit"] {
+  cursor: pointer;
+  background-color: #97c002;
+  color: #fff;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 5px;
+  font-size: 1.1rem;
+  transition: background-color 0.2s ease-in-out;
+}
+
+.form__container input[type="submit"]:hover {
+  background-color: #78a501;
+}
+
+.form__container label {
+  font-size: 1rem;
+  text-transform: capitalize;
+  margin-bottom: 0.3rem;
+  display: block;
+}
+
+.form__container h2 {
+  font-size: 1.5rem;
+  /* margin-bottom: 1.5rem; */
+  text-align: center;
+}
+
+.form__container #images {
+  display: flex;
+  justify-content: space-between;
+  font-size: 1rem;
+  /* margin-top: 1rem; */
+}
+
+.image__input {
+  display: flex;
+  justify-content: space-between;
+  column-gap: 1rem;
+  font-size: 1rem;
+  margin-top: 0.5rem;
+}
+
+.form__errors {
+  margin-bottom: 1.5rem;
+}
+
+.form__error {
+  background-color: red;
+  font-size: 1rem;
+  padding: 0.5rem;
+  color: #fff;
+  border-radius: 5px;
+  /* margin-bottom: 1rem; */
+}
+
+.form__success {
+  background-color: #78a501;
+  color: #fff;
+  font-size: 1rem;
+  padding: 0.75rem;
+  border-radius: 5px;
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+.form__action {
+  font-size: 0.7rem;
+  text-align: center;
+}
+
+.register__btn {
+  color: blue;
+  text-decoration: underline;
+  cursor: pointer;
+  transition: color 0.2s ease-in-out;
+}
+
+.register__btn:hover {
+  color: #555;
+}

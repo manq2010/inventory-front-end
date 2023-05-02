@@ -59,7 +59,7 @@ ${mixins.flexCenter};
     right: 0;
     padding: 50px 10px;
     width: min(70vw, 400px);
-    height: 100vh;
+    /* height: 100vh; */
     outline: 0;
     background-color: var(--primary-light);
     box-shadow: -10px 0px 30px -15px var(--primary-shadow);

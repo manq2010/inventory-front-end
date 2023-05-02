@@ -1,29 +1,29 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import axios from 'axios';
-import { itemsPaths } from './itemsTypes';
-import { itemsApi } from './itemsApi';
+import { salesPaths } from './salesType';
+import { itemsApi } from './salesApi';
 
-const SHOW_ITEMS = 'inventory/item/SHOW';
-const SHOW_ITEM = 'inventory/item/SHOW/:id';
-const ADD_ITEM = 'inventory/item/ADD';
-const DELETE_ITEM = 'inventory/item/DELETE';
+const SHOW_SALES = 'inventory/sale/SHOW';
+const SHOW_SALE = 'inventory/sale/SHOW/:id';
+const ADD_SALE = 'inventory/sale/ADD';
+const DELETE_SALE = 'inventory/sale/DELETE';
 
 // Base Url
 const BASE_URL = process.env.REACT_APP_BASE_URL;
 
-// Get all items
-export const getItems = createAsyncThunk(SHOW_ITEMS, async (thunkAPI) => {
+// Get all sales
+export const getSales = createAsyncThunk(SHOW_SALES, async (thunkAPI) => {
   try {
-    const data = await itemsApi.getItems(`${itemsPaths.items}`);
+    const data = await itemsApi.getSales(`${salesPaths.sales}`);
     return data.results;
   } catch (err) {
     return thunkAPI.rejectWithValue(err.response.data.error);
   }
 });
 
-export const getItem = createAsyncThunk(SHOW_ITEM, async (id, thunkAPI) => {
+export const getSale = createAsyncThunk(SHOW_SALE, async (id, thunkAPI) => {
   try {
-    const data = await itemsApi.getItem(`${itemsPaths.items}/${id}`);
+    const data = await itemsApi.getSale(`${salesPaths.sales}/${id}`);
     console.log(data.results);
     return data.results;
   } catch (err) {
@@ -31,20 +31,20 @@ export const getItem = createAsyncThunk(SHOW_ITEM, async (id, thunkAPI) => {
   }
 });
 
-// Add item
-// export const addItem = createAsyncThunk(ADD_ITEM, async (item, thunkAPI) => {
-//   // console.log('addItem', item);
+// Add sale
+// export const addSale = createAsyncThunk(ADD_ITEM, async (item, thunkAPI) => {
+//   // console.log('addSale', item);
 //   try {
-//     const data = await itemsApi.addItem(`${itemsPaths.items}`, item);
+//     const data = await itemsApi.addSale(`${itemsPaths.items}`, item);
 //     return data.results;
 //   } catch (err) {
 //     return thunkAPI.rejectWithValue(err.response.data.error);
 //   }
 // });
 
-export const addItem = createAsyncThunk(ADD_ITEM, async (item, thunkAPI) => {
-  const API_URL = `${BASE_URL}/api/v1/items`;
-  // const token = localStorage.getItem('token');
+export const addSale = createAsyncThunk(ADD_SALE, async (sale, thunkAPI) => {
+  const API_URL = `${BASE_URL}/api/v1/sales`;
+  // const token = localStorage.getSale('token');
   const requestOptions = {
     method: 'POST',
     headers: {
@@ -52,16 +52,16 @@ export const addItem = createAsyncThunk(ADD_ITEM, async (item, thunkAPI) => {
     },
   };
   try {
-    return await axios.post(API_URL, item, requestOptions);
+    return await axios.post(API_URL, sale, requestOptions);
   } catch (err) {
     return thunkAPI.rejectWithValue(err.response.data.error);
   }
 });
 
-// Delete an item
-export const deleteItem = createAsyncThunk(DELETE_ITEM, async (id, thunkAPI) => {
+// Delete a sale
+export const deleteSale = createAsyncThunk(DELETE_SALE, async (id, thunkAPI) => {
   try {
-    await itemsApi.deleteItem(`${itemsPaths.items}/${id}`, id);
+    await itemsApi.deleteSale(`${salesPaths.sales}/${id}`, id);
     return id;
   } catch (err) {
     return thunkAPI.rejectWithValue(err.response.data.error);
@@ -72,17 +72,17 @@ const initialState = {
   isLoading: false,
   success: false,
   error: null,
-  items: [],
-  item: null,
+  sales: [],
+  sale: null,
   response: null,
-  totalItems: 0,
+  totalSales: 0,
   ordering: null,
   filters: null,
   searchQuery: null,
 };
 
-// Item Slice
-const itemSlice = createSlice({
+// Sale Slice
+const saleSlice = createSlice({
   name: 'item',
   initialState,
   reducers: {
@@ -95,76 +95,76 @@ const itemSlice = createSlice({
     }),
   },
   extraReducers: (builder) => {
-    // Get Items
-    builder.addCase(getItems.pending, (state) => ({
+    // Get sales
+    builder.addCase(getSales.pending, (state) => ({
       ...state,
       isLoading: true,
       error: '',
     }));
 
-    builder.addCase(getItems.fulfilled, (state, action) => ({
+    builder.addCase(getSales.fulfilled, (state, action) => ({
       ...state,
       isLoading: false,
       success: true,
-      items: action.payload.data.data.items,
+      sales: action.payload.data.data.sales,
     }));
 
-    builder.addCase(getItems.rejected, (state, action) => ({
+    builder.addCase(getSales.rejected, (state, action) => ({
       ...state,
       isLoading: false,
       error: action.payload,
     }));
 
-    // Get Item
-    builder.addCase(getItem.pending, (state) => ({
+    // Get sale
+    builder.addCase(getSale.pending, (state) => ({
       ...state,
       isLoading: true,
       error: '',
     }));
 
-    builder.addCase(getItem.fulfilled, (state, action) => ({
+    builder.addCase(getSale.fulfilled, (state, action) => ({
       ...state,
       isLoading: false,
       success: true,
-      item: action.payload.data.data.items,
+      sale: action.payload.data.data.sales,
     }));
 
-    builder.addCase(getItem.rejected, (state, action) => ({
+    builder.addCase(getSale.rejected, (state, action) => ({
       ...state,
       isLoading: false,
       error: action.payload,
     }));
 
-    // Add Item
+    // Add sale
 
-    builder.addCase(addItem.pending, (state) => ({
+    builder.addCase(addSale.pending, (state) => ({
       ...state,
       isLoading: true,
       error: '',
     }));
 
-    builder.addCase(addItem.fulfilled, (state, action) => ({
+    builder.addCase(addSale.fulfilled, (state, action) => ({
       ...state,
       isLoading: false,
       success: true,
       response: action.payload.data.data,
     }));
 
-    builder.addCase(addItem.rejected, (state, action) => ({
+    builder.addCase(addSale.rejected, (state, action) => ({
       ...state,
       isLoading: false,
       errors: action.payload.data.errors,
     }));
 
-    // Delete Item
+    // Delete Sale
 
-    builder.addCase(deleteItem.pending, (state) => ({
+    builder.addCase(deleteSale.pending, (state) => ({
       ...state,
       isLoading: true,
       error: '',
     }));
 
-    builder.addCase(deleteItem.fulfilled, (state, action) => {
+    builder.addCase(deleteSale.fulfilled, (state, action) => {
       const id = action.payload;
 
       return {
@@ -176,7 +176,7 @@ const itemSlice = createSlice({
       };
     });
 
-    builder.addCase(deleteItem.rejected, (state, action) => ({
+    builder.addCase(deleteSale.rejected, (state, action) => ({
       ...state,
       isLoading: false,
       error: action.payload.data.error,
@@ -184,6 +184,6 @@ const itemSlice = createSlice({
   },
 });
 
-// export default itemSlice.reducer;
-export const { resetErrors } = itemSlice.actions;
-export const itemReducer = itemSlice.reducer;
+// export default saleSlice.reducer;
+export const { resetErrors } = saleSlice.actions;
+export const saleReducer = saleSlice.reducer;
