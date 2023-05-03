@@ -4,7 +4,7 @@ const Paths = {
   main: '/home',
   item: '/items',
   item_id: '/items/:id',
-  item_add: '/items/add',
+  item_add: '/item/add',
   sale: '/sales',
   dog: '/dog',
   register: '/register',

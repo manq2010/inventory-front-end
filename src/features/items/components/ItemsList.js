@@ -14,6 +14,7 @@ const ItemWrapper = styled.div`
 `;
 
 const ItemListTitle = styled.h1`
+  margin-top: 1rem;
   display: ${({ isLoading }) => (isLoading ? 'none' : 'block')};
 `;
 
@@ -70,7 +71,7 @@ const ItemsList = ({ itemsPerPage }) => {
   return (
     <ItemWrapper>
       <ItemListTitle isLoading={isLoading}>
-        Service Rendered
+        List of Items
       </ItemListTitle>
       <CardContainer isLoading={isLoading}>
         {showLoading(isLoading)}

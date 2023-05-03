@@ -63,7 +63,7 @@ const ItemCard = ({ currentItems }) => {
                 alt={item.name}
               />
             </ImageContainer>
-            <Description>{item.name}</Description>
+            <Description className="text-red-800 text-4xl">{item.name}</Description>
           </DetailsCard>
         ))}
     </CardContainer>

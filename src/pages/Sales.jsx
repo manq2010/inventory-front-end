@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import { Helmet } from 'react-helmet';
 import Layout from '../components/Layout/Layout';
-// import ItemsList from '../features/items/components/ItemsList';
+import SalesTable from '../features/sales/components/SalesTable';
 
 const SalePage = () => (
   <Layout>
@@ -9,7 +9,7 @@ const SalePage = () => (
       <title>Chillers | Sales</title>
     </Helmet>
     <Div>
-      Sale
+      <SalesTable />
     </Div>
   </Layout>
 );

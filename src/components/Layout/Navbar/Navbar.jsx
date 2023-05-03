@@ -20,11 +20,11 @@ const Navbar = () => {
         </NavLinkCustom>
       </div>
       <div>
-        <NavLink to={Paths.main}>Main</NavLink>
+        <NavLink to={Paths.main}>Home</NavLink>
         <NavLink to={Paths.item}>Item</NavLink>
         <NavLink to={Paths.item_add}>Add Item</NavLink>
         <NavLink to={Paths.sale}>Sales</NavLink>
-        <NavLink to={Paths.dog}>Dogs</NavLink>
+        {/* <NavLink to={Paths.dog}>Dogs</NavLink> */}
       </div>
     </StyledNavbar>
   );
